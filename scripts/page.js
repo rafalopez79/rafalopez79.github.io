@@ -2,9 +2,10 @@ var canvas = document.getElementById('canvas');
 var overlay = document.getElementById('overlay');
 overlay.addEventListener("click", onClick, false);
 var ctx = canvas.getContext('2d');
-var numPoints = 100;
+var numPoints = 50;
 var pointw = 1.5;
-var delta = 0.25;
+var deltax = 0.25;
+var deltay = 0.55;
 var points = [];
 var stop = false;
 
@@ -20,7 +21,8 @@ function createPoint(canvas) {
 	var point = {
 		x : x,
 		y : y,
-		delta: delta,
+		deltax: deltax,
+		deltay: deltay,
 		color : color
 	};
 	return point;
@@ -33,7 +35,8 @@ function createPointScoped(canvas, w, h) {
 	var point = {
 		x : x,
 		y : y,
-		delta: delta,
+		deltax: deltax,
+		deltay: deltay,
 		color : color
 	};
 	return point;
@@ -68,20 +71,21 @@ function draw() {
 		var tl = ctx.measureText(text).width;
 		clearCanvas(ctx, canvas);
 		var centerw = canvas.width / 2;
-		var centerh = canvas.height / 2;
-		for (var i = 0; i < numPoints; i++) {
-			var point = points[i];
+		var centerh = canvas.height / 2;		
+		for (var i = 0, num = points.length; i < num; i++) {
+			var point = points[i];			
 			ctx.fillStyle = point.color;
 			ctx.fillRect(point.x, point.y, pointw, pointw);
-			var delta = point.delta; 
-			point.x = point.x > centerw ? point.x + delta : point.x - delta;
-			point.y = point.y > centerh ? point.y + delta : point.y - delta;
-			point.delta = delta + 0.25*Math.abs(point.x - centerw)/centerw; 
-			if (point.x < 0 || point.x > canvas.width || point.y < 0
-					|| point.y > canvas.height) {
+			var randx = Math.random() * 0.1;
+			var deltax = point.deltax *( 1 + randx); 			
+			var deltay = point.deltay;
+			point.x = point.x > centerw ? point.x + deltax : point.x - deltax;
+			point.y = point.y > centerh ? point.y + deltay : point.y - deltay;
+			point.deltax = deltax + 0.25*Math.abs(point.x - centerw)/centerw; 
+			point.deltay = deltay + 0.25*Math.abs(point.y - centerh)/centerh;
+			if (point.x < 0 || point.x > canvas.width || point.y < 0 || point.y > canvas.height) {
 				points.splice(i, 1);
-				points.push(createPointScoped(canvas, canvas.width / 2.0,
-						canvas.height / 2.0));
+				points.push(createPointScoped(canvas, canvas.width / 2.0, canvas.height / 2.0));
 			}			
 		}
 		ctx.font = "48px monospace";
