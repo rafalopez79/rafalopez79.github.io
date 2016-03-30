@@ -1,9 +1,10 @@
 var canvas = document.getElementById('canvas');
-canvas.addEventListener("click", onClick, false);
+var overlay = document.getElementById('overlay');
+overlay.addEventListener("click", onClick, false);
 var ctx = canvas.getContext('2d');
 var numPoints = 100;
 var pointw = 1.5;
-var delta = 1;
+var delta = 0.5;
 var points = [];
 var stop = false;
 
