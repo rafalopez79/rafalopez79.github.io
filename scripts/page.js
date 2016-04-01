@@ -7,7 +7,7 @@ var timeout = 25;
 var ctx = canvas.getContext('2d');
 var numPoints = 100;
 var pointw = 1.5;
-var delta = 0.08;
+var delta = 0.04;
 var points = [];
 var stop = false;
 
