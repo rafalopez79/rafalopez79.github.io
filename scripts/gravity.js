@@ -97,6 +97,11 @@
 				//e.log();
 				points.push(e);
 			}
+			// z-sort
+			points.sort(function(a, b){
+				return a.r.z - b.r.z;
+			});
+			
 			//draw points
 			for (var i = 0, num = points.length; i < num; i++) {
 				var elem = points[i];
