@@ -102,6 +102,7 @@
 				return a.r.z - b.r.z;
 			});
 			
+			
 			//draw points
 			for (var i = 0, num = points.length; i < num; i++) {
 				var elem = points[i];
