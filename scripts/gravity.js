@@ -139,10 +139,16 @@
 			ctx.closePath();
 			ctx.stroke();
 			
+			//energy
+			//const ke = kineticEnergy(points);
+			//const pe = potentialEnergy(points);
+			
 			ctx.font = "12px monospace";
 			ctx.fillText("t      = "+t.toFixed(4), canvas.width / 2 + canvas.width / 4 + 10, 16*canvas.height / 20);
 			ctx.fillText("bodies = "+points.length, canvas.width / 2 + canvas.width / 4 + 10, 16.5*canvas.height / 20);
-			
+			//ctx.fillText("KE     = "+ke.toFixed(4), canvas.width / 2 + canvas.width / 4 + 10, 17*canvas.height / 20);
+			//ctx.fillText("PE     = "+pe.toFixed(4), canvas.width / 2 + canvas.width / 4 + 10, 17.5*canvas.height / 20);
+			//ctx.fillText("E      = "+(pe+ke).toFixed(4), canvas.width / 2 + canvas.width / 4 + 10, 18*canvas.height / 20);
 			redraw(timeout);
 		}
 	};
@@ -288,6 +294,37 @@
 		}
 		return a;
 	}
+	
+	//1/2*m*v*v
+	function kineticEnergy(elements){
+		var energy = 0.0;
+		for (var i = 0, num = elements.length; i < num; i++) {
+			const elem = elements[i];
+			energy += (1/2.0 * (elem.mass * (elem.v.x*elem.v.x + elem.v.y*elem.v.y + elem.v.z*elem.v.z)));
+		}
+		return energy;
+	}
+	
+	function potentialEnergy(elements){
+		var energy = 0.0;
+		for (var i = 0, num = elements.length; i < num; i++) {
+			const elem = elements[i];
+			for (var j = 0, num = elements.length; j < num; j++) {
+				const e = elements[j];
+				if (elem !== e){
+					const dx = elem.r.x - e.r.x;
+					const dy = elem.r.y - e.r.y;
+					const dz = elem.r.z - e.r.z;
+					const dsq = dx*dx + dy*dy + dz*dz;
+					const d = Math.sqrt(dsq);
+					const p = -1*(G*elem.mass*e.mass/d);
+					energy += p;
+				}
+			}
+		}
+		return energy;
+	}
+	
 	
 	function Point(x,y,z) {
 		this.x = x;
