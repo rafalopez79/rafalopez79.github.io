@@ -4,7 +4,39 @@
 	if (!canvas){
 		return;
 	}
-	canvas.addEventListener("click", onClick, false);
+	//canvas.addEventListener("click", onClick, false);
+	var theta = 0.0;
+	
+	function slowrate(f){
+		var timer = undefined;
+		return function(e){
+			if (timer){
+				clearTimeout(timer);
+			}
+			timer = setTimeout(f, 100, e);
+		};
+	};
+	
+	//events
+	(function(){
+		var clickCount = 0;
+		var singleClickTimer = undefined;
+		canvas.addEventListener('click', function() {
+			clickCount++;
+			if (clickCount === 1) {
+				singleClickTimer = setTimeout(function() {
+					clickCount = 0;
+					onClick();
+				}, 400);
+			} else if (clickCount === 2) {
+				clearTimeout(singleClickTimer);
+				clickCount = 0;
+				onDoubleClick();
+			}
+		}, false);
+		canvas.addEventListener("mousemove", slowrate(onMouseMove), false);
+	})();
+	
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 	
@@ -47,16 +79,16 @@
 		}
 	};
 	
-	var timeout = 125;
+	var timeout = 65;
 	var ctx = canvas.getContext('2d');
 	var stop = false;
 	
 	//constants
 	const G 	= 1000.0;
-	const DELTAR = 1.25;
+	const DELTAR = 1.075;
 	const NUMPOINTS = 500;
 	const EPS   = 1e-9;
-	const dt 	= 0.001;
+	const dt 	= 0.0005;
 	const sqrt3 = Math.sqrt(3.0);
 	const sqrt2 = Math.sqrt(2.0);
 	const sqrt6 = Math.sqrt(6.0);
@@ -169,9 +201,24 @@
 	};
 	
 	function onClick() {
-		stop = !stop;
-		redraw(timeout);
+		//empty
 	};
+	
+	function onDoubleClick() {
+		stop = !stop;
+		redraw();
+	};
+	
+	function onMouseMove(e) {
+		const centerx = canvas.width/2;
+		const x = e.clientX;
+		const alpha = (x - centerx) * Math.PI;
+		//console.log(alpha);
+	}
+	
+	function rotatex(point, alpha){
+		return 
+	}
 	
 	function updatePhys(t, dt, elements){
 		//collisions
