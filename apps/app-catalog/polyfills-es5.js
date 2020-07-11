@@ -902,14 +902,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   /***/
   function node_modulesAngularLocalizeFesm2015InitJs(module, exports) {
     /**
-     * @license Angular v9.1.9
+     * @license Angular v10.0.3
      * (c) 2010-2020 Google LLC. https://angular.io/
      * License: MIT
      */
 
     /**
      * @license
-     * Copyright Google Inc. All Rights Reserved.
+     * Copyright Google LLC All Rights Reserved.
      *
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
@@ -928,7 +928,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _global = __globalThis || __global || __window || __self;
     /**
      * @license
-     * Copyright Google Inc. All Rights Reserved.
+     * Copyright Google LLC All Rights Reserved.
      *
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
@@ -1096,7 +1096,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }
     /**
      * @license
-     * Copyright Google Inc. All Rights Reserved.
+     * Copyright Google LLC All Rights Reserved.
      *
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
@@ -1104,7 +1104,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     /**
      * @license
-     * Copyright Google Inc. All Rights Reserved.
+     * Copyright Google LLC All Rights Reserved.
      *
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
