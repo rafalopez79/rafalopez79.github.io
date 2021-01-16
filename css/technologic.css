@@ -8,6 +8,7 @@ body {background-color: black;}
     font-family: led;
     color: red;
     font-size: 5vw;
+    pointer-events: all;
 }
 
 @font-face {

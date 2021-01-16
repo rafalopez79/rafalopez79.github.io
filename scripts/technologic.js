@@ -80,13 +80,26 @@
 
         var index = 0;
         var len = data.length;
+        var running = true;
         var timer = null;
         const timerHandler = () => {
             let item = data[index];
-            content.textContent = item.text;
+            let text =  item.text;
+            content.textContent = text;
             index = (index +1) % len;
             timer = setTimeout(timerHandler, item.time);
         };
         timer = setTimeout(timerHandler, defaultTime);
+
+        const onClick = () => {
+            running = !running;
+            if (!running) {
+                clearTimeout(timer);
+            } else {
+                timer = setTimeout(timerHandler, defaultTime);
+            }
+        }
+
+        content.addEventListener("click", onClick);
     }
 })();
