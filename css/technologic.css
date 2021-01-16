@@ -7,7 +7,7 @@ body {background-color: black;}
     transform: translate(-50%, -50%);
     font-family: led;
     color: red;
-    font-size: xx-large;
+    font-size: 20vh;
 }
 
 @font-face {
