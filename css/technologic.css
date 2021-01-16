@@ -1,0 +1,16 @@
+body {background-color: black;}
+
+.center {
+    position: fixed;
+    top : 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: led;
+    color: red;
+    font-size: xx-large;
+}
+
+@font-face {
+    font-family: led;
+    src: url(../fonts/led.ttf);
+}
