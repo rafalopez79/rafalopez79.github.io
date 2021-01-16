@@ -19,10 +19,10 @@
             {text: "", time: defaultblinktime},
             {text: "LEAVE", time: defaultTime},
             {text: "", time: defaultblinktime},
-            {text: "START", time: defaultTime/2},
+            {text: "START", time: defaultTime},
             {text: "", time: defaultblinktime},
             {text: "FORMAT", time: defaultTime},
-            {text: "", time: defaultblinktime},
+            {text: "", time: defaultblinktime * 2},
         ];
         var index = 0;
         var len = data.length;
