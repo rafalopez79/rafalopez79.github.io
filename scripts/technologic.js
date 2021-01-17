@@ -4,8 +4,8 @@
 (function() {
     const content = document.getElementById("content");
     if (content != null) {
-        const defaultTime = 400;
-        const defaultblinktime = 60;
+        const defaultTime = 420;
+        const defaultblinktime = 80;
         const base = [
             {text: "TOUCH", time: defaultTime},
             {text: "", time: defaultblinktime},
