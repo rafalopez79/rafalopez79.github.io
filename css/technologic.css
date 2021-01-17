@@ -8,16 +8,16 @@ body {
 
 @keyframes animate{
     0%, 
-    100% {background-position: 0 0;         transform: rotate(30 deg); }
-    10% { background-position: -5%  10%;    transform: rotate(180 deg); }
-    20% { background-position: 15%  5%;     transform: rotate(45 deg);}
-    30% { background-position: 7% -25%;     transform: rotate(270 deg);}
-    40% { background-position:-5%  25%;     transform: rotate(90 deg);}
-    50% { background-position: -15%  10%;   transform: rotate(120 deg);}
-    60% { background-position: 15%  0%;     transform: rotate(15 deg);}
-    70% { background-position: 0%  15%;     transform: rotate(320 deg);}
-    80% { background-position: 3%  35%;     transform: rotate(60 deg);}
-    90% { background-position:-10%  10%;    transform: rotate(30 deg);}
+    100% {background-position: 0 0;         transform: rotate(30 deg) scale(2);}
+    10% { background-position: -5%  10%;    transform: rotate(180 deg)  scale(0.5);}
+    20% { background-position: 15%  5%;     transform: rotate(45 deg) scale(1.1);}
+    30% { background-position: 7% -25%;     transform: rotate(270 deg) scale(3);}
+    40% { background-position:-5%  25%;     transform: rotate(90 deg) scale(0.3);}
+    50% { background-position: -15%  10%;   transform: rotate(120 deg) scale(0.8);}
+    60% { background-position: 15%  0%;     transform: rotate(15 deg) scale(1.7);}
+    70% { background-position: 0%  15%;     transform: rotate(320 deg) scale(0.7);}
+    80% { background-position: 3%  35%;     transform: rotate(60 deg) scale(1.9);}
+    90% { background-position:-10%  10%;    transform: rotate(30 deg) scale(0.8);}
 }
 
 .center {
