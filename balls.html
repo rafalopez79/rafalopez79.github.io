@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bolas</title>
+    <meta name="description" content="Balls">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/balls.css">
+</head>
+
+<body>
+    <article>
+        <header>
+            <h1>Probabilidad de acertar tema</h1>
+        </header>
+        <section>
+            <div class="wrapper">
+                <div class="one">
+                    <p>
+                        <label for="temas">Número de temas (1-1024):</label>
+                    </p>
+                    <p>
+                        <label for="bolas">Número de bolas (1-1024):</label>
+                    </p> 
+                    <p>
+                        <label for="estudio">Temas a estudiar (1-1024):</label>
+                    </p>       
+                </div>
+                <div class="two">
+                    <p>
+                        <input type="number" id="temas" name="temas" min="1" max="1024" value="25" required>        
+                    </p>
+                    <p>
+                        <input type="number" id="bolas" name="bolas" min="1" max="1024" value="5" required>
+                    </p>
+                    <p>
+                        <input type="number" id="estudio" name="estudio" min="1" max="1024" value="1" required>
+                    </p>
+                </div>
+                <div class="three">
+
+                </div>
+            </div>
+        </section>
+        <section>
+            <p>
+                <label for="probabilidad">Probabilidad de acierto:</label>
+                <label id="probabilidad" class="result">0</label>
+            </p>
+        </section>
+
+        <footer>
+            <blockquote>
+                <small>
+                    Information: the negative reciprocal value of probability.
+
+                    Claude Shannon
+                </small>
+            </blockquote>
+        </footer>
+    </article>
+    <script src="scripts/balls.js"></script>
+</body>
+
+</html>
