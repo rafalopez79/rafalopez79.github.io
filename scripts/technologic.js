@@ -139,7 +139,7 @@
             {text: "", time: defaultblinktimeFast},
             {text: "RIP", time: defaultTimeFast},
             {text: "", time: defaultblinktimeFast},
-            {text: "DRANG", time: defaultTimeFast},
+            {text: "DRAG", time: defaultTimeFast},
             {text: "", time: defaultblinktimeFast},
             {text: "DROP", time: defaultTimeFast},
             {text: "", time: defaultblinktimeFast},
