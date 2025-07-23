@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Grip the micriphone</title>
+    <meta name="description" content="audio processing">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body onload="init(document)">
+    <div id="autoplay">
+		<button onclick="scanDevices(navigator, document)">
+            Scan devices
+        </button>
+        <button onclick="play(navigator, document)">
+            Play
+        </button>
+	</div>
+    <div>Input:
+		<select id="audioinput" onchange="selectSource(document)">
+		</select>
+	</div>
+</body>
+<script src="scripts/mic.js"></script>
+</html>

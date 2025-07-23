@@ -1,17 +1,17 @@
 //(function() {
 	'use strict';
-	var canvas = document.getElementById('canvas');
-	var overlay = document.getElementById('overlay');
-	var background = document.getElementById('background');
+	let canvas = document.getElementById('canvas');
+	let overlay = document.getElementById('overlay');
+	let background = document.getElementById('background');
 	overlay.addEventListener("click", onClick, false);
 	overlay.addEventListener("mousemove", getOnMouseMove(), false);
-	var timeout = 25;
-	var ctx = canvas.getContext('2d');
-	var numPoints = 100;
-	var pointw = 1.5;
-	var delta = 0.04;
-	var points = [];
-	var stop = false;
+	let timeout = 25;
+	let ctx = canvas.getContext('2d');
+	let numPoints = 100;
+	let pointw = 1.5;
+	let delta = 0.04;
+	let points = [];
+	let stop = false;
 
 	function onClick() {
 		stop = !stop;
@@ -20,23 +20,23 @@
 		}
 	};
 
-	var spot = {
+	let spot = {
 		x : 0,
 		y : 0
 	};
 	function getOnMouseMove() {
-		var prevx = undefined;
-		var prevy = undefined;
+		let prevx = undefined;
+		let prevy = undefined;
 		return function(event) {			 
-			 var rect = canvas.getBoundingClientRect();
-			 var cw = canvas.width;
-			 var ch = canvas.height;
-			 var scalew = cw / rect.width;
-			 var scaleh = ch / rect.height;
-			 var x = event.clientX - rect.left;
-			 var y = event.clientY - rect.top;
-			 var px = x * scalew;
-			 var py = y * scaleh;
+			 let rect = canvas.getBoundingClientRect();
+			 let cw = canvas.width;
+			 let ch = canvas.height;
+			 let scalew = cw / rect.width;
+			 let scaleh = ch / rect.height;
+			 let x = event.clientX - rect.left;
+			 let y = event.clientY - rect.top;
+			 let px = x * scalew;
+			 let py = y * scaleh;
 			 if (prevx != undefined && prevy != undefined){
 			   spot.x = px - cw/2;
 			   spot.y = py - ch/2;
@@ -49,11 +49,11 @@
 	;
 
 	function onTimeOut() {
-		// var cw = canvas.width;
-		// var ch = canvas.height;
-		// var centerw = cw/2;
-		// var centerh = ch/2;
-		// var delta = 0.5;
+		// let cw = canvas.width;
+		// let ch = canvas.height;
+		// let centerw = cw/2;
+		// let centerh = ch/2;
+		// let delta = 0.5;
 		// spot.x = spot.x + centerw < centerw ? spot.x + delta : spot.x -
 		// delta;
 		// spot.y = spot.y + centerh < centerh ? spot.y + delta : spot.y -
@@ -68,11 +68,11 @@
 	;
 
 	function createPoint(canvas) {
-		var rmax = Math.max(canvas.width, canvas.height) / 2;
-		var r = Math.random() * rmax;
-		var theta = Math.random() * 2 * Math.PI;
-		var color = randomColor();
-		var point = {
+		let rmax = Math.max(canvas.width, canvas.height) / 2;
+		let r = Math.random() * rmax;
+		let theta = Math.random() * 2 * Math.PI;
+		let color = randomColor();
+		let point = {
 			r : r,
 			theta : theta,
 			delta : delta,
@@ -83,12 +83,12 @@
 	;
 
 	function createPointScoped(canvas, w, h) {
-		var rmax = Math.max(w, h) / 2;
-		var r = Math.random() * rmax;
-		var color = randomColor();
-		var theta = Math.random() * 2 * Math.PI;
-		var d = delta * Math.random();
-		var point = {
+		let rmax = Math.max(w, h) / 2;
+		let r = Math.random() * rmax;
+		let color = randomColor();
+		let theta = Math.random() * 2 * Math.PI;
+		let d = delta * Math.random();
+		let point = {
 			r : r,
 			theta : theta,
 			delta : d,
@@ -109,7 +109,7 @@
 	;
 
 	function init(document) {
-		for (var i = 0; i < numPoints; i++) {
+		for (let i = 0; i < numPoints; i++) {
 			points.push(createPoint(canvas));
 		}
 		spot.x = 0;
@@ -121,7 +121,7 @@
 
 	function clearCanvas(context, canvas) {
 		context.clearRect(0, 0, canvas.width, canvas.height);
-		var w = canvas.width;
+		let w = canvas.width;
 		canvas.width = 1;
 		canvas.width = w;
 	}
@@ -130,12 +130,12 @@
 	function draw() {
 		if (ctx) {
 			// onTimeOut();
-			var text = "Error 404: Ground Control Not Found";
-			var tl = ctx.measureText(text).width;
+			let text = "Error 404: Ground Control Not Found";
+			let tl = ctx.measureText(text).width;
 			clearCanvas(ctx, canvas);
-			var radius = 10;
-			var centerw = canvas.width / 2; // + spot.x ;
-			var centerh = canvas.height / 2; // + spot.y ;
+			let radius = 10;
+			let centerw = canvas.width / 2; // + spot.x ;
+			let centerh = canvas.height / 2; // + spot.y ;
 			// hud
 			// ctx.strokeStyle='rgb(0,255,0)';
 			// ctx.beginPath();
@@ -147,11 +147,11 @@
 			// ctx.closePath();
 			// ctx.stroke();
 			ctx.fillStyle = 'rgb(0,0,0)';
-			for (var i = 0, num = points.length; i < num; i++) {
-				var point = points[i];
+			for (let i = 0, num = points.length; i < num; i++) {
+				let point = points[i];
 				ctx.fillStyle = point.color;
-				var x = centerw + point.r * Math.cos(point.theta);
-				var y = centerh - point.r * Math.sin(point.theta);
+				let x = centerw + point.r * Math.cos(point.theta);
+				let y = centerh - point.r * Math.sin(point.theta);
 				ctx.fillRect(x, y, pointw, pointw);
 				point.r = point.r * (1 + point.delta);
 				if (x < 0 || x > canvas.width || y < 0 || y > canvas.height) {
